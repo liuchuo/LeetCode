@@ -14,19 +14,11 @@ Subscribe to see which companies asked this question
 Show Tags
 Show Similar Problems
 
-//记住考虑特殊条件 n <= 0 。。否则会超时。。
 class Solution {
 public:
     bool isPowerOfThree(int n) {
         if(n <= 0)
             return false;
-        while(n != 1) {
-            if(n % 3 == 0) {
-                n = n / 3;
-            } else {
-                return false;
-            }
-        }
-        return true;
+        return pow(3, (round)(log(n) / log(3))) == n;
     }
 };
