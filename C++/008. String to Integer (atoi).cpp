@@ -1,4 +1,4 @@
-8. String to Integer (atoi)   
+8. String to Integer (atoi)
 My Submissions QuestionEditorial Solution
 Total Accepted: 99420 Total Submissions: 737262 Difficulty: Easy
 Implement atoi to convert a string to an integer.
@@ -46,6 +46,13 @@ public:
                 break;
             }
         }
+        //remove the '0' in front,wich is useless, to reduce the length
+        // the input “0000000002000” will not pass now if without the operation
+        int j=0;
+        while(str[j]=='0')
+            j++;
+        str = str.substr(j);
+
         if(str.length() == 0)
             return 0;
         if(str.length() > 10) {
