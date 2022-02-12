@@ -45,3 +45,28 @@ public:
         return ans;
     }
 };
+
+
+
+// ==========================using python===============================
+// rahul pandit
+// https://github.com/panditrahulsharma
+class Solution:
+    def matrixReshape(self, mat, r: int, c: int):
+        rows=len(mat)
+        columns=len(mat[0])        
+        if (rows*columns)!=(r*c):
+            return mat
+        
+        empty_list=[]
+        row_no=0
+        column_no=0
+        output = np.array([[0]*c]*r)
+        for i in range(rows):
+            for j in range(columns):
+                output[row_no][column_no]=mat[i][j]
+                column_no+=1
+                if (column_no==c):
+                    column_no=0
+                    row_no+=1
+        return output.tolist()
